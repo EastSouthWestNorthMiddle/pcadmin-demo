@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PC 管理端 · 集采集配</title>
+<link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="logo">🏢 集采集配管理端</div>
+    <nav class="nav">
+      <div class="nav-item active" data-view="products">📦 商品管理</div>
+      <div class="nav-item" data-view="suppliers">🏭 供应商管理</div>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <h2 id="pageTitle">商品管理</h2>
+      <span class="user">管理员</span>
+    </div>
+
+    <div class="content">
+      <!-- 商品管理 -->
+      <div class="view active" id="view-products">
+        <div class="card">
+          <div class="filters">
+            <div class="filter">
+              <label>品类</label>
+              <select id="f-category">
+                <option value="">全部品类</option>
+                <option value="rec-cat-veg">蔬菜</option>
+                <option value="rec-cat-meat">肉类</option>
+                <option value="rec-cat-egg">蛋类</option>
+                <option value="rec-cat-seafood">海鲜</option>
+              </select>
+            </div>
+            <div class="filter">
+              <label>上下架</label>
+              <select id="f-onsale">
+                <option value="">全部状态</option>
+                <option value="true">已上架</option>
+                <option value="false">已下架</option>
+              </select>
+            </div>
+            <div class="filter">
+              <label>供应商</label>
+              <select id="f-supplier">
+                <option value="">全部供应商</option>
+              </select>
+            </div>
+            <div class="filter">
+              <label>关键字</label>
+              <input id="f-keyword" type="text" placeholder="商品名 / SKU / 编号">
+            </div>
+            <button class="btn btn-primary" id="btn-search">查询</button>
+            <button class="btn btn-default" id="btn-reset">重置</button>
+          </div>
+
+          <div id="products-body"></div>
+          <div class="pager" id="products-pager"></div>
+        </div>
+      </div>
+
+      <!-- 供应商管理 -->
+      <div class="view" id="view-suppliers">
+        <div class="card">
+          <div class="filters">
+            <div class="filter">
+              <label>合作状态</label>
+              <select id="s-status">
+                <option value="">全部状态</option>
+                <option value="合作中">合作中</option>
+                <option value="暂停">暂停</option>
+                <option value="终止">终止</option>
+              </select>
+            </div>
+            <div class="filter">
+              <label>关键字</label>
+              <input id="s-keyword" type="text" placeholder="供应商名称">
+            </div>
+            <button class="btn btn-primary" id="btn-s-search">查询</button>
+            <button class="btn btn-default" id="btn-s-reset">重置</button>
+          </div>
+
+          <div id="suppliers-body"></div>
+          <div class="pager" id="suppliers-pager"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="./admin.js"></script>
+</body>
+</html>
